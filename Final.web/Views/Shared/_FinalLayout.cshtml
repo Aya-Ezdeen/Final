@@ -1,0 +1,121 @@
+﻿
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" /> -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/m.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/m.css"/>
+</head>
+
+  @if (SignInManager.IsSignedIn(User))
+{
+    <nav>
+        <div class="buttons">
+            <!-- <button>صفحتك</button>
+            <button>تسجيل الخروج</button> -->
+
+
+            <!-- Split dropend button -->
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                    <a href="#homepagebeforlogin" class="main" style="color: #FF6700;">تسجيل خروج
+                        <img src="~\icons\icons8-remove-50.png" alt="" width="20px" height="14px"/>
+                    </a>
+                </button>
+
+            </div>
+
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                    <a href="#homepagebeforlogin" class="main" style="color: #FF6700;">صفحتي
+                        <img src="~\icons\icons8-user-50.png" alt="" width="20px" height="14px"/>
+                    </a>
+                </button>
+
+            </div>
+        </div>
+
+
+        <ul class="links">
+
+            <li>
+                <a href="~/Customers/Index/5" class="main" style="text-decoration: none; color:#FF6700;">شمال غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/4" class="main" style="text-decoration: none; color:#FF6700;  ">غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/3" class="main" style="text-decoration: none; color:#FF6700;">الوسطى</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/2" class="main" style="text-decoration: none; color:#FF6700;">خانيونس</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/1" class="main" style="text-decoration: none; color:#FF6700;">رفح</a>
+            </li>
+        </ul>
+
+        <div class="logo">
+            <p>بناء منشئة</p>
+            <img src="~/assets/user.jpeg" width="40px" height="40px" alt="" />
+        </div>
+
+    </nav>
+
+    <aside>
+        <div><button style="border: none;"><img src="~/icons/1.png " width="30px " height="30px "></div>
+        <div><button style="border: none;"><img src="~/icons/2.png " width="30px " height="30px "></button></div>
+        <div><button style="border: none;"><img src="~/icons/3.png " width="30px " height="30px "></button></div>
+
+        
+      @*  <a style="border:none;"  href="Customers/Shoppingcarts" > <img src="~/icons/3.png " width="30px " height="30px"></a>*@
+    </aside>
+    }
+
+   <partial name="_LoginPartial" />
+
+@*
+              <div class="logo">
+            <p>بناء منشئة</p>
+            <img src="~/assets/user.jpeg" width="40px" height="40px" alt="" />
+        </div>
+    </nav>
+
+    </header>
+     <aside>
+        <div><button style="border: none;"><img src="~/icons/1.png " width="30px " height="30px "></div>
+        <div><button style="border: none;"><img src="~/icons/2.png " width="30px " height="30px "></button></div>
+        <div><button style="border: none;"><img src="~/icons/3.png " width="30px " height="30px "></button></div>
+    </aside>*@
+
+       <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+       <div class="footer">
+        <footer>
+            <p>حقوق النشر © ٢٠٢٣ بناء منشأة</p>
+            <p>Protected by the Google Privacy Policy and the Terms of Service apply.</p>
+        </footer>
+    </div>
+   <<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</html>
+

@@ -1,0 +1,58 @@
+﻿
+@model CreateWorkerViewModel
+
+<h1  style="color: #FF6700;" >اضافة عامل جديد </h1>
+
+<div class="col-md-4">
+    <form asp-action="Signw">
+        <div class="form-group">
+            <label class="label-control" asp-for="UserName"  style="color: #FF6700;"></label>
+            <input class="form-control" asp-for="UserName" />
+        </div>
+        <div class="form-group">
+            <label class="label-control" asp-for="Email" style="color: #FF6700;"></label>
+            <input class="form-control" asp-for="Email" />
+        </div>
+            <div class="form-group">
+            <label class="label-control" asp-for="IDNumber" style="color: #FF6700;"></label>
+            <input class="form-control" asp-for="IDNumber" />
+        </div> 
+            <div class="form-group">
+            <label class="label-control" asp-for="Governorate" style="color: #FF6700;"></label>
+            <select class="form-control" asp-for="Governorate">
+                <option value="@GoverType.A">رفح </option>
+                <option value="@GoverType.B">خانيونس</option>
+                 <option value="@GoverType.C">وسطي</option>
+                  <option value="@GoverType.D">غزة</option>
+                   <option value="@GoverType.E">الشمال</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="label-control" asp-for="Password" style="color: #FF6700;"></label>
+            <input class="form-control" asp-for="Password" />
+        </div>
+           <div class="form-group">
+            <label class="label-control" asp-for="ConfirmPassword" style="color: #FF6700;" ></label>
+            <input class="form-control" asp-for="ConfirmPassword" />
+        </div>
+        <div class="form-group">
+            <label class="label-control" asp-for="Section" style="color: #FF6700;"></label>
+            <select class="form-control" asp-for="Section">
+                <option value="@SectionType.البلاط">البلاط</option>
+                <option value="@SectionType.البناء">البناء</option>
+                 <option value="@SectionType.الجبس">الجبس</option>
+                  <option value="@SectionType.الحدادة">الحدادة</option>
+                   <option value="@SectionType.الدهان">البناء</option>
+                    <option value="@SectionType.السباكة">السباكة</option>
+                     <option value="@SectionType.القصارة">القصارة</option>
+                      <option value="@SectionType.الكهرباء">الكهرباء</option>
+                       <option value="@SectionType.الهندسة">الهندسة</option>
+                        <option value="@SectionType.النجارة">النجارة</option>
+            </select>
+        </div>
+          <input class="form-control" asp-for="userType"  type="hidden"/>
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a href="~/User/Index" class="btn btn-danger">Cancel</a>
+    </form>
+</div>
+

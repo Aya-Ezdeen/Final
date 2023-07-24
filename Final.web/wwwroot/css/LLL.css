@@ -1,0 +1,193 @@
+    body {
+        max-width: 100%;
+        min-height: 1850PX;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    ul li {
+        list-style: none;
+        cursor: pointer;
+        margin: 20px;
+    }
+    
+    nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        height: 60px;
+        padding: 0 20px;
+        margin: 5px;
+        border-bottom: 3px solid #ff6800;
+    }
+    
+    nav .buttons {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 10px;
+    }
+    
+    nav .buttons button {
+        padding: 10px;
+        background-color: transparent;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid #ff6800;
+        color: #ff6800;
+        cursor: pointer;
+    }
+    
+    nav ul.links {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 30px;
+        color: #ff6800;
+    }
+    
+    nav .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #ff6800;
+    }
+    
+    h2 {
+        text-align: center;
+        color: #d6742d;
+    }
+    
+    .person {
+        margin: 20px auto;
+        /* width: 80%; */
+        border: solid #d6742d;
+        border-bottom: 2px solid #d6742d;
+        border-top: none;
+        border-right: solid 2px #d6732d69;
+        border-left: solid 2px #d6732d69;
+        box-shadow: 1px 5px 5px #d6742d;
+        position: relative;
+    }
+    
+    .col-6 {
+        flex: 1;
+    }
+    
+    #pro {
+        height: auto;
+        width: 70%;
+        margin-left: -180px;
+    }
+    
+    p {
+        text-align: -webkit-center;
+        font-size: 28px;
+        margin-top: 191px;
+        color: #d6742d;
+        font-weight: bold;
+    }
+    
+    h3 {
+        position: absolute;
+        color: #d6742d;
+        bottom: 10px;
+        text-align: center;
+        left: 50%;
+    }
+    
+    li {
+        color: #d6742d;
+        font-size: 1.375rem;
+        font-weight: bold;
+    }
+    
+    textarea.form-control {
+        color: #d6742d;
+        font-size: 18px;
+        font-weight: bold;
+        border: solid #d6742d;
+        border-bottom: 2px solid #d6742d;
+        border-top: none;
+        border-right: solid 2px #d6732d69;
+        border-left: solid 2px #d6732d69;
+        margin: 20px 20px;
+        /* box-shadow: 1px 5px 5px #d6742d; */
+    }
+    
+    video {
+        width: 541px;
+        height: 392px;
+        border: solid #d6742d;
+        border-bottom: 2px solid #d6742d;
+        border-top: none;
+        border-right: solid 2px #d6732d69;
+        border-left: solid 2px #d6732d69;
+        margin: 20px 20px;
+        box-shadow: 1px 5px 5px #d6742d;
+    }
+    
+    .adham {
+        background: #d6742d;
+    }
+    
+    h6 {
+        color: #d6742d;
+        font-size: 35px;
+        font-weight: bold;
+    }
+    
+    footer {
+        position: absolute;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        left: 0;
+        bottom: 0;
+        height: 100px;
+        width: 100%;
+        background: #ff6800;
+        margin-top: 80px;
+        color: #ffff;
+    }
+    
+    footer A {
+        width: 80%;
+        text-align: center;
+    }
+    
+    footer A:first-of-type {
+        padding-bottom: 15px;
+        border-bottom: 2px solid white;
+    }
+    
+    aside {
+        position: fixed;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 2%;
+    }
+    
+    aside div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        color: #ff6800;
+        border: 1px solid #ff6800;
+        border-radius: 100%;
+    }

@@ -1,0 +1,183 @@
+﻿@model CreateWorkerViewModel
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>worker sign up</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+</head>
+
+<body >
+    <nav>
+        <div class="buttons">
+                  
+
+              <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/Home/Index" class="main" style="color: #FF6700;"> الرئسية
+                  
+                </a>
+                </button>
+                
+            </div> 
+
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/Index" class="main" style="color: #FF6700;">تسجيل دخول
+                    <img src="C:\Users\TOSHIBA\Desktop\prooo\gover..1\icons\icons8-remove-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+            
+              <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/signc" class="main" style="color: #FF6700;">تسجيل مستخدم  
+                    <img src="~/icons/icons8-login-rounded-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+                <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/signw" class="main" style="color: #FF6700;">تسجيل عامل  
+                    <img src="~/icons/icons8-login-rounded-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+                <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/signs" class="main" style="color: #FF6700;">تسجيل متجر  
+                    <img src="~/icons/icons8-login-rounded-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+          @*  <div class="btn-group dropend">
+                
+                    <button type="button" class="btn btn-secondary">
+                        
+                      <select class="main" style="color: #FF6700; background-color: rgb(255, 241, 241);">
+                        <img src="C:\Users\TOSHIBA\Desktop\prooo\gover..1\icons\icons8-user-50.png" alt="" width="20px" height="14px"/>
+
+                        <option selected disabled hidden><a class="dropdown-item active " href="# ">تسجيل</a></option>
+                        <option><a class="dropdown-item active " href="signu.html">مستخدم</a></option>
+                        <option><a class="dropdown-item active " href="signw.html">عامل</a></option>
+                        <option><a class="dropdown-item active " href="signs.html">متجر</a></option>
+                    
+                      </select>
+                    </button>
+                 
+                </div>*@
+        </div>
+
+        <div class="logo">
+            <p>بناء منشئة</p>
+            <img src="~/assets/user.jpeg" width="40px" height="40px" alt="" />
+        </div>
+    </nav>
+    <!-- <img src="images/sss.jpg" alt=""> -->
+   
+    <fieldset class="container ff">
+
+        <div class="header row mt-5 ">
+            <div class="col">
+                <form class="mt-5" asp-action="signw">
+                     <h4 class="mx-5 text-center mt-5"  style="color: #FF6700;" >تسجيل عامل في بناء منشأة</h4>
+                     <div class="mb-3">
+                        <input asp-for="UserName" type="text" class="form-control  p-3" id="text" aria-describedby="text" placeholder="اسم المستخدم" required>
+                        <div id="text" class="form-text">
+                        </div>
+                    </div> 
+
+                    <div class="mb-3">
+                        <input asp-for="Email"  type="email" class="form-control  p-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الالكتروني" required>
+                        <div id="emailHelp" class="form-text">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <input asp-for="Password" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="كلمة المرور" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <input asp-for="ConfirmPassword" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="تأكيد كلمة المرور" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <input asp-for="IDNumber" type="text" class="form-control  p-3" id="exampleInputPassword1" placeholder="رقم الهوية" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <input  type="file" multiple class="form-control  p-3" id="exampleInputPassword1" placeholder="ملفات الانجاز">
+                    </div>
+
+                     
+
+                    <div class="mb-3">
+
+                       
+
+                        <select asp-for="Governorate"  class="form-control"  required>
+                            
+                            <option value="@GoverType.E"   >شمال غزة</option>
+                            <option value="@GoverType.D"  >غزة</option>
+                            <option value="@GoverType.C" >الوسطى</option>
+                            <option value="@GoverType.B" >خانيونس</option>
+                            <option value="@GoverType.A " >رفح</option>
+                        </select>
+                        <div id="text" class="form-text">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        
+                        <select  asp-for="Section" class="form-control "  required>
+                           
+                            <option value="@SectionType.البناء"  >البناء</option>
+                            <option value="@SectionType.الهندسة">الهندسة</option>
+                            <option value="@SectionType.القصارة">القصارة</option>
+                            <option value="@SectionType.الجبس">الجبس</option>
+                            <option value="@SectionType.الدهان">الدهان</option>
+                            <option value="@SectionType.النجارة">النجارة</option>
+                            <option value="@SectionType.السباكة">السباكة</option>
+                            <option value="@SectionType.الكهرباء">الكهرباء</option>
+                            <option value="@SectionType.البلاط">البلاط</option>
+                            <option value="@SectionType.الحدادة">الحدادة</option>
+                        </select>
+                        <div id="text" class="form-text">
+                        </div>
+                    </div>
+
+                     <button type="submit" class="btn col-5 container mt-5 btn-light text-center text-danger p-3">تسجيل</button>
+                </form>
+                 <div class="col-3">
+                   
+                       <br>
+                    <p id="prh"  style="color: #FF6700;" >لديك حساب بالفعل؟
+                        <br>
+                        <span><a href="~/User/Index"  style="color: #FF6700;">سجل دخول هنا</a></span>
+                    </p>
+                </div>
+            </div>
+ </div>
+
+ </fieldset>
+
+</body>
+
+</html>

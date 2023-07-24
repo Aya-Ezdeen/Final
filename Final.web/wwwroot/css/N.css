@@ -1,0 +1,264 @@
+
+body {
+    max-width: 100%;
+   
+
+    position: relative;
+    min-height: 1850px;
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul li {
+    list-style: none;
+    cursor: pointer;
+    margin: 20px;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    height: 60px;
+    padding: 0 20px;
+    margin: 5px;
+    border-bottom: 3px solid #ff6800;
+}
+
+nav .buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+}
+
+nav .buttons button {
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ff6800;
+    color: #ff6800;
+    cursor: pointer;
+}
+
+nav ul.links {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 30px;
+    color: #ff6800;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff6800;
+}
+
+.n {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff6800;
+    margin-top: 100px;
+    
+    margin-left: 390px;
+    
+}
+
+
+.header {
+    background-color: #ffd2b3;
+    width: 70%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.user-info {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 400px;
+    color: #ff6800;
+}
+
+.user-info .icon {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    padding: 25px;
+    padding-bottom: 50px;
+}
+
+.user-info .details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.user-info .details div,
+.user-info .phone {
+    display: flex;
+    gap: 14px;
+}
+
+
+.main{
+    text-decoration: none;
+
+font-weight: 500;
+font-size: 1.1em; 
+padding-left: 30px;
+}
+.main:hover{
+    color:#c25714 ;
+    background-color: rgb(255, 241, 241);
+}
+
+            
+.main-btn{
+    color: #0d7ce3;
+  
+ 
+    font-size: 1.1em;
+    font-weight: 600;
+
+    transition:0.7s ease ;/* هنا هيكبر كل ما تعدي النقطة هذه */
+}
+.main-btn:hover{
+    color: #165a84;
+    background-color: hsl(18, 81%, 82%);
+    transform: scale(1.1);/*لما ااشر بالماوس على الزر هيكبر */
+
+}
+
+
+
+.container {
+    position: relative;
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    gap: 60px;
+    max-height: 600px;
+    margin-top: 170px;
+  
+}
+
+.container .left {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 5px;
+    max-height: 300px;
+    border: 2px solid #ff6800;
+    border-top: none;
+    border-bottom: 4px solid #ff6800;
+    /* border-left: none; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container .left .card {
+    width: 30%;
+    border: 1px solid #ff6800;
+    background-color: transparent;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: -2px 2px 2px #ff6800;
+    background-color: #faedda;
+    color: #ff6800;
+    text-align: right;
+    font-size: large;
+}
+
+.container .right {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.container .right .card {
+    width: 40%;
+    padding: 20px;
+    height: fit-content;
+    background-color: white;
+    display: inline;
+    box-shadow: 2px 2px 2px 2px#ff6800;
+    text-align: center;
+    background-color: #faedda;
+    color: #ff6800;
+}
+
+
+footer {
+    position: absolute;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: #ff6800;
+    margin-top: 80px;
+    color: #ffff;
+}
+
+footer p {
+    width: 80%;
+    text-align: center;
+}
+
+    footer p:first-of-type {
+        padding-bottom: 15px;
+        border-bottom: 2px solid white;
+    }
+
+aside {
+    position: fixed;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2%;
+}
+
+aside div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    color: #ff6800;
+    border: 1px solid #ff6800;
+    border-radius: 100%;
+}

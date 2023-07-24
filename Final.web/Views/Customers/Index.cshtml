@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html >
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- <link rel="stylesheet" href="~/css/m" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" /> -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/m.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="m.css"/>
+</head>
+
+<body>
+   @* <nav>
+        <div class="buttons">
+            <!-- <button>صفحتك</button>
+            <button>تسجيل الخروج</button> -->
+
+                
+            <!-- Split dropend button -->
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="#homepagebeforlogin" class="main" style="color: #FF6700;">تسجيل خروج
+                    <img src="~\icons\icons8-remove-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+            <div class="btn-group dropend">
+                    <button type="button" class="btn btn-secondary">
+                      <a href="#homepagebeforlogin" class="main" style="color: #FF6700;">صفحتي
+                        <img src="~\icons\icons8-user-50.png" alt="" width="20px" height="14px"/>
+                    </a>
+                    </button>
+                 
+                </div>
+        </div>
+        
+        <ul class="links">
+           @if (@ViewBag.Id == 1)
+            {
+          <li>
+                <a href="~/Customers/Index/5 "   class="main" style="text-decoration: none; color:#FF6700;">شمال غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/4"    class="main" style="text-decoration: none; color:#FF6700;  ">غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/3" class="main" style="text-decoration: none; color:#FF6700;">الوسطى</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/2" class="main" style="text-decoration: none; color:#FF6700;">خانيونس</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/1" class="main" style="text-decoration: none; color:#FF6700; background-color: rgb(255, 241, 241)">رفح</a>
+            </li>
+            }
+
+           
+                  @if (@ViewBag.Id == 2)
+            {
+                    <li>
+                <a href="~/Customers/Index/5 "   class="main" style="text-decoration: none; color:#FF6700;">شمال غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/4"    class="main" style="text-decoration: none; color:#FF6700;  ">غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/3" class="main" style="text-decoration: none; color:#FF6700;">الوسطى</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/2" class="main" style="text-decoration: none; color:#FF6700;background-color: rgb(255, 241, 241)">خانيونس</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/1" class="main" style="text-decoration: none; color:#FF6700; ">رفح</a>
+            </li>
+            }
+
+                    @if (@ViewBag.Id == 3)
+            {
+           <li>
+                <a href="~/Customers/Index/5 "   class="main" style="text-decoration: none; color:#FF6700;">شمال غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/4"   class="main" style="text-decoration: none; color:#FF6700;  ">غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/3" class="main" style="text-decoration: none; color:#FF6700;background-color: rgb(255, 241, 241)">الوسطى</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/2" class="main" style="text-decoration: none; color:#FF6700;">خانيونس</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/1" class="main" style="text-decoration: none; color:#FF6700; ">رفح</a>
+            </li>
+            }
+
+                    @if (@ViewBag.Id == 4)
+            {
+              <li>
+                <a href="~/Customers/Index/5"  class="main" style="text-decoration: none; color:#FF6700;">شمال غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/4"   class="main" style="text-decoration: none; color:#FF6700; background-color: rgb(255, 241, 241) ">غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/3" class="main" style="text-decoration: none; color:#FF6700;">الوسطى</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/2" class="main" style="text-decoration: none; color:#FF6700;">خانيونس</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/1" class="main" style="text-decoration: none; color:#FF6700; ">رفح</a>
+            </li>
+            }
+                    @if (@ViewBag.Id == 5)
+            {
+           <li>
+                <a href="~/Customers/Index/5 "   class="main" style="text-decoration: none; color:#FF6700;background-color: rgb(255, 241, 241)">شمال غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/4"   class="main" style="text-decoration: none; color:#FF6700;  ">غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/3" class="main" style="text-decoration: none; color:#FF6700;">الوسطى</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/2" class="main" style="text-decoration: none; color:#FF6700;">خانيونس</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index/1" class="main" style="text-decoration: none; color:#FF6700;">رفح</a>
+            </li>
+            }
+            <!--   <li>
+                <a href="../gover2/gov.html "  id=" 1" class="main" style="text-decoration: none; color:#FF6700;">شمال غزة</a>
+            </li>
+            <li>
+                <a href="~/Customers/Index"   id=" 2" class="main" style="text-decoration: none; color:#FF6700;  background-color: rgb(255, 241, 241);">غزة</a>
+            </li>
+            <li>
+                <a href="../gover3/h.html" class="main" style="text-decoration: none; color:#FF6700;">الوسطى</a>
+            </li>
+            <li>
+                <a href="../gover4/k.html" class="main" style="text-decoration: none; color:#FF6700;">خانيونس</a>
+            </li>
+            <li>
+                <a href="../gover5/d.html" class="main" style="text-decoration: none; color:#FF6700;">رفح</a>
+            </li>  -->
+          
+        </ul>
+
+        <div class="logo">
+            <p>بناء منشئة</p>
+            <img src="~/assets/user.jpeg" width="40px" height="40px" alt="" />
+        </div>
+    </nav>*@
+
+    
+
+    <div class="categorize" style="padding-top:5px ;">
+        <span class="main">الاقسام</span>
+        <span><img src="~/icons/icons8-categorize-50.png"width="30px" height="30px"></span>
+    </div>
+
+    <div class="grid">
+ 
+        <div>
+            <img src="~/icons/53b45d8c6ad429caf6eb9890d84e5522.jpg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn">قسم البناء</a>
+        </div>
+        <div>
+            <img src="~/icons/كم-سنة-دراسة-الهندسة-في-السعودية.jpg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn">قسم الهندسة</a>
+        </div>
+        <div>
+            <img src="~/icons/5efdrey675ihk-plaster-wall-1-1.jpg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn">قسم القصارة</a>
+        </div>
+        <div>
+            <img src="~/icons/ves2-1.jpg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn">قسم البلاط</a>
+        </div>
+        <div>
+            <img src="~/icons/CD3FF7AE-6292-4E51-A097-2EEC4E114B2F.jpeg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn">قسم السباكة</a>
+        </div>
+        <div>
+            <img src="~/icons/FB_IMG_1598399705899.jpg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn"> قسم الحدادة</a>
+        </div>
+        <div>
+            <img src="~/icons/images1.jpg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn">قسم النجارة</a>
+        </div>
+        <div>
+            <img src="~/icons/cable-4605760_1280-e1661591454243.jpg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn">قسم الكهرباء</a>
+        </div>
+        <div>
+            <img src="~/icons/3808.jpg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn">قسم الدهان</a>
+        </div>
+        <div >
+            <img src="~/icons/images.jpg" alt="" width="100%" height="230px" />
+            <a href="~/Customers/Section" class="main-btn" >قسم الجبس</a>
+        </div>
+    </div>
+
+    <aside>
+        <div><button style="border: none;"><img src="~/icons/1.png " width="30px " height="30px "></div>
+        <div><button style="border: none;"><img src="~/icons/2.png " width="30px " height="30px "></button></div>
+        <div><button style="border: none;"><img src="~/icons/3.png " width="30px " height="30px "></button></div>
+    </aside>
+
+    <div class="footer">
+        <footer>
+      <p> 
+     حقوق النشر © ٢٠٢٣ بناء منشأة
+   
+      </p>
+     <p>Protected by the Google Privacy Policy and the Terms of Service apply.</p>
+        </footer>
+    </div>
+</body>
+</html>

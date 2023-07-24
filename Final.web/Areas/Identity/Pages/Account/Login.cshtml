@@ -1,0 +1,224 @@
+﻿@page
+@model LoginModel
+@*
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                    <p>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h4>Use another service to log in.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                            for details on setting up this ASP.NET application to support logging in via external services.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+*@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+</head>
+
+<body >
+    <nav>
+
+        <div class="buttons">
+                   
+
+              <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/Home/Index" class="main" style="color: #FF6700;"> الرئسية
+                  
+                </a>
+                </button>
+                
+            </div> 
+ 
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/Index" class="main" style="color: #FF6700;">تسجيل دخول
+                    <img src="C:\Users\TOSHIBA\Desktop\prooo\gover..1\icons\icons8-remove-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+            
+              <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/signc" class="main" style="color: #FF6700;">تسجيل مستخدم  
+                    <img src="~/icons/icons8-login-rounded-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+                <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/signw" class="main" style="color: #FF6700;">تسجيل عامل  
+                    <img src="~/icons/icons8-login-rounded-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+                <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/signs" class="main" style="color: #FF6700;">تسجيل متجر  
+                    <img src="~/icons/icons8-login-rounded-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+           @* <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                        
+                    <select id="select" class="main" style="color: #FF6700; background-color: rgb(255, 241, 241);">
+                      <img src="C:\Users\TOSHIBA\Desktop\prooo\gover..1\icons\icons8-user-50.png" alt="" width="20px" height="14px"/>
+
+                      <option selected disabled hidden><a class="dropdown-item active " href="# ">تسجيل</a></option>
+                      <option><a class="dropdown-item active " href="signu.html">مستخدم</a></option>
+                      <option><a class="dropdown-item active " href="signw.html">عامل</a></option>
+                      <option><a class="dropdown-item active " href="signs.html">متجر</a></option>
+                  
+                    </select>
+                
+                  </button>
+                 
+                </div>*@
+        </div>
+        <div class="logo">
+            <p>بناء منشئة</p>
+            <img src="~/assets/user.jpeg" width="40px" height="40px" alt="" />
+        </div>
+    </nav>
+    <!-- ////////////////////////////////////////////////// -->
+    
+
+     <fieldset class="container ff">
+
+       <div class="header row mt-5 ">
+            
+                <form class="mt-5">
+                    <h4 class="text-center mt-5"  style="color: #FF6700;">تسجيل دخول لبناء منشأة</h4>
+                       <br>
+
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-control p-3" placeholder="ادخل البريد الالكتروني" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" id="password" class="form-control  p-3" placeholder="ادخل كلمة المرور" required>
+                    </div>
+                
+                           
+                     
+                       
+                    <button type="submit" class="btn col-5 container mt-2 btn-light text-danger  "  style="color: #FF6700;" > دخول</button>
+                            <br>
+                         <a href="forget.html"  style="color: #FF6700;">نسيت كلمة المرور؟</a>
+                         <p id="prh"   style="color: #FF6700;">مستخدم جديد؟
+                           
+                            <span><a href="~/User/signc"   style="color: #FF6700;">سجل  هنا</a></span>
+                         </p>
+                  
+                </form>
+               
+                  
+
+                
+                </div>
+                </fieldset>
+
+     
+        </div>
+    </div>
+
+    <!-- <div class="footer">
+        <footer>
+            <p>حقوق النشر © ٢٠٢٣ بناء منشأة</p>
+            <p>Protected by the Google Privacy Policy and the Terms of Service apply.</p>
+        </footer></div> -->
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+body {
+    max-width: 100%;
+    min-height: 1500PX;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul li {
+    list-style: none;
+    cursor: pointer;
+    margin: 20px;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    height: 60px;
+    padding: 0 20px;
+    margin: 5px;
+    border-bottom: 3px solid #ff6800;
+}
+
+nav .buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+}
+
+nav .buttons button {
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ff6800;
+    color: #ff6800;
+    cursor: pointer;
+}
+
+nav ul.links {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 30px;
+    color: #ff6800;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff6800;
+}
+
+.header {
+    background-color: #ffd2b3;
+    width: 70%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+h4 {
+    text-align: center;
+    padding-top: 8px;
+    color: #d6742d;
+}
+
+#exampleInputEmail1::placeholder {
+    color: #d6742d;
+}
+
+#exampleInputPassword1::placeholder {
+    color: #d6742d;
+}
+
+#text::placeholder {
+    color: #d6742d;
+}
+
+#prh {
+    color: #d6742d;
+}
+
+a {
+    font-size: 13px;
+    font-weight: 13px;
+}
+
+.headertow {
+    background-color: #ffd2b3;
+    width: 40%;
+    padding: 10px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+
+/*  form 2  */
+
+input {
+    margin-top: 6px;
+}
+
+hr {
+    margin: auto;
+    /* color: #eaeae2;*/
+}
+
+.ff {
+    padding-top: 20px;
+}
+
+footer {
+    position: absolute;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: #ff6800;
+    margin-top: 80px;
+    color: #ffff;
+}
+
+footer A {
+    width: 80%;
+    text-align: center;
+}
+
+footer A:first-of-type {
+    padding-bottom: 15px;
+    border-bottom: 2px solid white;
+}
