@@ -1,0 +1,110 @@
+﻿@model UpdateStoreViewModel
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>worker sign up</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+</head>
+
+<body >
+  
+   
+    <fieldset class="container ff">
+
+        <div class="header row mt-5 ">
+            <div class="col">
+                <form class="mt-5" asp-action="Update">
+                     <h4 class="mx-5 text-center mt-5"  style="color: #FF6700;" >تعديل بيانات المتجر </h4>
+                     <div class="mb-3">
+                        <input asp-for="UserName" type="text" class="form-control  p-3" id="text" aria-describedby="text" placeholder="اسم المستخدم" required>
+                        <div id="text" class="form-text">
+                        </div>
+                    </div> 
+
+                    <div class="mb-3">
+                        <input asp-for="Email"  type="email" class="form-control  p-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الالكتروني" required>
+                        <div id="emailHelp" class="form-text">
+                        </div>
+                    </div>
+
+                       <div class="mb-3">
+                        <input asp-for="IDNumber" type="text" class="form-control  p-3" id="exampleInputPassword1" placeholder="رقم الهوية" required>
+                    </div>
+
+                       <div class="mb-3">
+                        <input asp-for="PhoneNumber" type="text" class="form-control  p-3" id="exampleInputPassword1" placeholder="رقم الهاتف" required>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <input asp-for="Password" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="كلمة المرور" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <input asp-for="ConfirmPassword" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="تأكيد كلمة المرور" required>
+                    </div>
+
+                 
+
+                  @*  <div class="mb-3">
+                        <input  type="file" multiple class="form-control  p-3" id="exampleInputPassword1" placeholder="صورة المنتج ">
+                    </div>
+*@
+                     
+
+                    <div class="mb-3">
+
+                       
+
+                        <select asp-for="Governorate"  class="form-control"  required>
+                            
+                            <option value="@GoverType.E"   >شمال غزة</option>
+                            <option value="@GoverType.D"  >غزة</option>
+                            <option value="@GoverType.C" >الوسطى</option>
+                            <option value="@GoverType.B" >خانيونس</option>
+                            <option value="@GoverType.A " >رفح</option>
+                        </select>
+                        <div id="text" class="form-text">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        
+                        <select  asp-for="Section" class="form-control "  required>
+                           
+                            <option value="@SectionType.البناء"  >البناء</option>
+                            <option value="@SectionType.الهندسة">الهندسة</option>
+                            <option value="@SectionType.القصارة">القصارة</option>
+                            <option value="@SectionType.الجبس">الجبس</option>
+                            <option value="@SectionType.الدهان">الدهان</option>
+                            <option value="@SectionType.النجارة">النجارة</option>
+                            <option value="@SectionType.السباكة">السباكة</option>
+                            <option value="@SectionType.الكهرباء">الكهرباء</option>
+                            <option value="@SectionType.البلاط">البلاط</option>
+                            <option value="@SectionType.الحدادة">الحدادة</option>
+                        </select>
+                        <div id="text" class="form-text">
+                        </div>
+                    </div>
+
+                     <button type="submit" class="btn col-5 container mt-5 btn-light text-center text-danger p-3">Updata</button>
+                </form>
+                
+            </div>
+ </div>
+
+ </fieldset>
+
+</body>
+
+</html>

@@ -1,6 +1,4 @@
-﻿@model User
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html >
 
 <head>
@@ -9,26 +7,25 @@
     <!-- <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/owl.carousel.min.css" />
     <link rel="stylesheet" href="css/owl.theme.default.min.css" /> -->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/bb.css" />
- 
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/StoreIndex.css"/>
 </head>
 
-
-   
-   <body >
+<body>
+    
     
     <div class="user-info ">
-        <div class="icon "><img src="~/icons/user.png "></div>
+        <div class="icon "><img src="~\icons\icons8-achievement-64.png "></div>
         <!-- Icon must me here -->
-        <span> محمد محمد </span>
-       
+        <span>شركة الاوائل</span>
+
         <div class="details ">
             <div>
-                <span>عامل بناء</span>
-                <span><img src="~/icons/icons8-worker-50.png "width="20px " height="20px "> </span>
+                <span>متجر</span>
+                <span><img src="~\icons\icons8-new-store-80.png"width="20px " height="20px "> </span>
                 <!-- Icon must me here -->
             </div>
             <div>
@@ -44,26 +41,36 @@
         </div>
     </div>
 
+    
+              
+                
+              
+          
+            
+            
+            
+      
 
         <div class="right ">
             <div class="card ">
                 <button style="background-color:  #faedda;  border:none; color: #FF6700; " >
-               
-                 <a href="~/Worker/UpdateProfile" style="color: #FF6700;">    تعديل بيانات العامل</a>
+           
+                 <a href="~/Store/UpdateProfile"  style="color: #FF6700;">    تعديل البيانات المتجر</a>
+
                 <span><img src="~/icons/icons8-modify-58.png " alt="... " width="20px " height="20px "></span>
             </button>
             </div>
             
             <div class="card ">
                 <button style="background-color:  #faedda;  border:none; color: #FF6700;">
-              <a href="~/Worker/ViewProduct"  style="color: #FF6700;"> تعديل المنتجات</a>
+                  <a href="~/Store/ViewProduct"  style="color: #FF6700;"> تعديل المنتجات</a>
                 <span><img src="~/icons/icons8-modify-58.png " alt="... " width="20px " height="20px "></span>
             </button>
             </div>
             
             <div class="card ">
                 <button style="background-color:  #faedda;  border:none; color: #FF6700;">
-                     <a href="~/Worker/Create"  style="color: #FF6700;"> اضافة الاعمال</a>
+                  <a href="~/Store/Create"  style="color: #FF6700;">  اضافة المنتجات</a>
                 <span><img src="~/icons/icons8-add-new-50.png " alt="... " width="20px " height="20px "></span>
              </button>
             </div>
@@ -73,5 +80,12 @@
         </div>
     
 
+    <aside>
+        <div><button style="border: none;"><img src="~/icons/1.png " width="30px " height="30px "></button></div>
+        <div><button style="border: none;"><img src="~/icons/2.png " width="30px " height="30px "></button></div>
+        <div><button style="border: none;"><img src="~/icons/3.png " width="30px " height="30px "></button></div>
+    </aside>
+
+    
 </body>
 </html>

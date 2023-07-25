@@ -3,19 +3,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Final.web.ViewModel
 {
-    public class CreateWorkerViewModel
+    public class UpdateWorkerViewModel
     {
-
-       
-
+        public string Id { get; set; }
         [Required]
-     
+
         [Display(Name = " اسم المستخدم")]
         public string UserName { get; set; }
         [Required]
         [EmailAddress]
-        [Display(Name =" البريد الالكتروني")]
-        public string Email{get; set;}
+        [Display(Name = " البريد الالكتروني")]
+        public string Email { get; set; }
 
         [Required]
         [Display(Name = "رقم الهوية  ")]
@@ -31,7 +29,7 @@ namespace Final.web.ViewModel
         public SectionType Section { get; set; }
 
 
-        public UserType userType  { get; set; }
+        public UserType userType { get; set; }
 
 
         [DataType(DataType.Password)]

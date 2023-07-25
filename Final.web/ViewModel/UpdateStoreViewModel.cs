@@ -3,19 +3,23 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Final.web.ViewModel
 {
-    public class CreateWorkerViewModel
+    public class UpdateStoreViewModel
     {
-
-       
-
+        public string Id { get; set; }
         [Required]
-     
-        [Display(Name = " اسم المستخدم")]
+
+        [Display(Name = " اسم المتجر ")]
         public string UserName { get; set; }
         [Required]
         [EmailAddress]
-        [Display(Name =" البريد الالكتروني")]
-        public string Email{get; set;}
+        [Display(Name = " البريد الالكتروني")]
+        public string Email { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        [Required]
+        [Display(Name = "رقم الهاتف  ")]
+        public string PhoneNumber { get; set; }
+
 
         [Required]
         [Display(Name = "رقم الهوية  ")]
@@ -30,10 +34,6 @@ namespace Final.web.ViewModel
         [Display(Name = " فئة المنتجات  ")]
         public SectionType Section { get; set; }
 
-
-        public UserType userType  { get; set; }
-
-
         [DataType(DataType.Password)]
         [Required]
         [Display(Name = "كلمة المرور ")]
@@ -43,5 +43,7 @@ namespace Final.web.ViewModel
         [Required]
         [Display(Name = "تاكيد كلمة المرور ")]
         public string ConfirmPassword { get; set; }
+
+        public UserType userType { get; set; }
     }
 }

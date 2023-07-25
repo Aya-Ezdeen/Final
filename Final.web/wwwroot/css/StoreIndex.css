@@ -82,7 +82,7 @@ nav .logo {
     height: 300px;
     margin: 0 auto;
     margin-top: 40px;
-    width: 1000px;
+    width: 400px;
     color: #ff6800;
 }
 
@@ -150,14 +150,15 @@ nav .logo {
     font-size: large;
 }
 
-.container .right {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 20px;
-    width: 100%;
-    display:grid;
-
-}
+    .container .right {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-flow: row wrap;
+        gap: 20px;
+        width: 100%;
+        display: grid;
+    }
 
 .container .right .card {
     width: 40%;
@@ -171,6 +172,46 @@ nav .logo {
     color: #ff6800;
 }
 
+.r{
+    float: right;
+    tab-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    margin-right: 100px;
+
+}
+
+section {
+    display:inline-flex;
+    justify-content: center;
+    float: right;
+    margin-right: 10px;
+    margin-top: 50px;
+
+  }
+  
+  
+  .product {
+    width: 400px;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ff6800;
+    text-align: center;
+  }
+  
+  .price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #ffd2b3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
   
 .main{
     text-decoration: none;

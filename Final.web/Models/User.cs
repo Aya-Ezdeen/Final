@@ -14,7 +14,7 @@ namespace Final.web.Models
         [Required]
 
         public UserType UserType { get; set; }
-        [Required]
+   
 
         public string IDNumber { get; set; }
         [Required]
@@ -26,7 +26,7 @@ namespace Final.web.Models
 
         
        
-        public List<Product> Products { get; set; }
+      
 
     }
 }

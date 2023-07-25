@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Final.web.ViewModel
 {
-    public class CreateProductViewModel
+    public class UpdateProductViewModel
     {
+
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "اسم المنتج")]
@@ -14,7 +16,7 @@ namespace Final.web.ViewModel
         [Display(Name = "سعر المنتج ")]
         public float Price { get; set; }
 
-        
+
         public string WorkerId { get; set; }
 
 

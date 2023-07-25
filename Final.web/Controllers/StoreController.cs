@@ -10,39 +10,41 @@ using System.Threading.Tasks;
 
 namespace Final.web.Controllers
 {
-    [Authorize(Roles = "Worker")]
-    public class WorkerController : Controller
+    [Authorize(Roles = "Store")]
+    public class StoreController : Controller
     {
         private readonly ApplicationDbContext _db;
         private readonly IFileService _FileService;
-        public WorkerController(ApplicationDbContext db)
+        public StoreController(ApplicationDbContext db)
         {
             _db = db;
-           
+
         }
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public IActionResult UpdateProfile(string Id)
         {
-            var users = _db.Users.Where(x => !x.IsDelete && x.Id == Id).Select(x => new UpdateWorkerViewModel()
+            var users = _db.Users.Where(x => !x.IsDelete && x.Id == Id).Select(x => new UpdateStoreViewModel()
             {
                 Id = x.Id,
                 UserName = x.UserName,
                 Email = x.Email,
                 IDNumber = x.IDNumber,
+                PhoneNumber = x.PhoneNumber,
                 Section = x.Section,
                 Governorate = x.Governorate,
-           
+            
             }).ToList();
             return View(users);
-           
+
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProfile(UpdateWorkerViewModel input)
+        public async Task<IActionResult> UpdateProfile(UpdateStoreViewModel input)
         {
             //code to save database
             if (ModelState.IsValid)
@@ -54,14 +56,14 @@ namespace Final.web.Controllers
                 User.Section = input.Section;
                 User.Governorate = input.Governorate;
                 User.UserType = input.userType;
+                User.PhoneNumber = input.PhoneNumber;
 
-             
                 //if (input.ImageUrl != null)
                 //{
                 //    product.ImageUrl = await _FileService.SaveFile(input.ImageUrl, "Images");
                 //}
 
-               
+
 
                 _db.Users.Add(User);
                 _db.SaveChanges();
@@ -72,17 +74,17 @@ namespace Final.web.Controllers
 
         public IActionResult ViewProduct(string Id)
         {
-            var Products = _db.Products.Include(x => x.StoreId==Id).Where(x => !x.IsDelete).ToList();
+            var Products = _db.Products.Include(x => x.StoreId == Id).Where(x => !x.IsDelete).ToList();
             return View(Products);
-          
+
         }
 
-     
+      
 
 
         [HttpGet]
 
-        public IActionResult Create ()
+        public IActionResult Create()
         {
             return View();
         }
@@ -105,7 +107,7 @@ namespace Final.web.Controllers
                 }
 
                 product.StoreId = input.WorkerId;
-               
+
                 _db.Products.Add(product);
                 _db.SaveChanges();
                 return RedirectToAction("Update");
@@ -132,7 +134,7 @@ namespace Final.web.Controllers
             Vm.WorkerId = Product.StoreId;
 
             Product.ImageUrl = await _FileService.SaveFile(Vm.ImageUrl, "Images");
-            
+
             return View(Vm);
         }
 
@@ -151,13 +153,13 @@ namespace Final.web.Controllers
                 Product.Description = update.Description;
                 Product.Section = update.Section;
                 Product.Governorate = update.Governorate;
-               
-                
+
+
 
                 Product.ImageUrl = await _FileService.SaveFile(update.ImageUrl, "Images");
 
 
-              
+
                 _db.Products.Update(Product);
                 _db.SaveChanges();
                 return RedirectToAction("ViewProduct");
@@ -165,8 +167,6 @@ namespace Final.web.Controllers
 
             return View(update);
         }
-
-
 
 
     }

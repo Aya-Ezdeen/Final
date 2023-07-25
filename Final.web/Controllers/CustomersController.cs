@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Final.web.Controllers
 {
+    [Authorize(Roles = "Customer,Store,Worker")]
     public class CustomersController : Controller
     {
-        [Authorize]
+      
         public IActionResult Index(int Id)
         {
             if (Id == 0)

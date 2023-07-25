@@ -1,11 +1,13 @@
 ﻿
 using AutoMapper;
+using Final.web.Areas.Identity.Pages.Account;
 using Final.web.Data;
 using Final.web.Enums;
 using Final.web.Models;
 using Final.web.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +21,8 @@ namespace Final.web.Controllers
         private ApplicationDbContext _db;
         private UserManager<User> _UserManger;
         private RoleManager<IdentityRole> _UserRoles;
+        private readonly SignInManager<User> _signInManager;
       
-
         public UserController( ApplicationDbContext db, UserManager<User> userManager, RoleManager<IdentityRole> roleManger)
         {
             _db = db;
@@ -28,10 +30,15 @@ namespace Final.web.Controllers
             _UserRoles = roleManger;
          
         }
+
+     
         public IActionResult Index()
         {
             return View();
         }
+
+      
+
         [HttpGet]
         public IActionResult signw()
         {
@@ -46,6 +53,7 @@ namespace Final.web.Controllers
 
             if (ModelState.IsValid) { 
                 var user = new User();
+               
                 user.UserName = input.UserName;
                 user.Email = input.Email;
                 user.UserType = UserType.Worker;
