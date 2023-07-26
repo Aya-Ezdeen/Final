@@ -30,7 +30,11 @@ namespace Final.web.ViewModel
         [Display(Name = " فئة المنتجات  ")]
         public SectionType Section { get; set; }
 
-
+        [DataType(DataType.PhoneNumber)]
+        [Required]
+        [Display(Name = "رقم الهاتف  ")]
+        public string PhoneNumber { get; set; }
+ 
         public UserType userType  { get; set; }
 
 

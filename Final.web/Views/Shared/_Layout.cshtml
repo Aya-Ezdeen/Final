@@ -30,21 +30,39 @@
             <!-- Split dropend button -->
             <div class="btn-group dropend">
                 <button type="button" class="btn btn-secondary">
-                    <a href="#homepagebeforlogin" class="main" style="color: #FF6700;">تسجيل خروج
+                  @*  <a  asp-area="Identity" asp-page="/Account/Logout" class="main" style="color: #FF6700;">تسجيل خروج
                         <img src="~\icons\icons8-remove-50.png" alt="" width="20px" height="14px"/>
-                    </a>
+                    </a>*@
+                  
+        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button  type="submit" class="btn btn-secondary" style="color: #FF6700;">تسجيل خروج  </button>
+        </form>
+    
                 </button>
 
             </div>
+             @if (await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Worker"))
+            {
+                <div class="btn-group dropend">
+                    <button type="button" class="btn btn-secondary">
+                        <a href="~/Worker/Index" class="main" style="color: #FF6700;">صفحتي
+                            <img src="~\icons\icons8-user-50.png" alt="" width="20px" height="14px"/>
+                        </a>
+                    </button>
 
-            <div class="btn-group dropend">
-                <button type="button" class="btn btn-secondary">
-                    <a href="#homepagebeforlogin" class="main" style="color: #FF6700;">صفحتي
-                        <img src="~\icons\icons8-user-50.png" alt="" width="20px" height="14px"/>
-                    </a>
-                </button>
+                </div>
+            }
+                 @if (await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Store"))
+            {
+                <div class="btn-group dropend">
+                    <button type="button" class="btn btn-secondary">
+                        <a href="~/Store/Index" class="main" style="color: #FF6700;">صفحتي
+                            <img src="~\icons\icons8-user-50.png" alt="" width="20px" height="14px"/>
+                        </a>
+                    </button>
 
-            </div>
+                </div>
+            }
         </div>
 
 
@@ -68,7 +86,8 @@
         </ul>
 
         <div class="logo">
-            <p>بناء منشئة</p>
+            <a  href="~/Home/Index"  style="color: #FF6700;">  بناء منشئة</a>
+            
             <img src="~/assets/user.jpeg" width="40px" height="40px" alt="" />
         </div>
 
@@ -82,7 +101,72 @@
         
       @*  <a style="border:none;"  href="Customers/Shoppingcarts" > <img src="~/icons/3.png " width="30px " height="30px"></a>*@
     </aside>
-    }
+}
+else
+{
+    
+ <nav>
+
+        <div class="buttons">
+                   
+
+              <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/Home/Index" class="main" style="color: #FF6700;"> الرئسية
+                  
+                </a>
+                </button>
+                
+            </div> 
+ 
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a asp-area="Identity" asp-page="/Account/Login" class="main" style="color: #FF6700;">تسجيل دخول
+                    <img src="C:\Users\TOSHIBA\Desktop\prooo\gover..1\icons\icons8-remove-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+            
+              <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/signc" class="main" style="color: #FF6700;">تسجيل مستخدم  
+                    <img src="~/icons/icons8-login-rounded-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+                <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/signw" class="main" style="color: #FF6700;">تسجيل عامل  
+                    <img src="~/icons/icons8-login-rounded-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+                <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                  <a href="~/User/signs" class="main" style="color: #FF6700;">تسجيل متجر  
+                    <img src="~/icons/icons8-login-rounded-50.png" alt="" width="20px" height="14px"/>
+                </a>
+                </button>
+                
+            </div>
+
+                 
+                </div>
+       
+        <div class="logo">
+            <p>بناء منشئة</p>
+            <img src="~/assets/user.jpeg" width="40px" height="40px" alt="" />
+        </div>
+ 
+
+        </nav>
+
+}
 
    <partial name="_LoginPartial" />
 

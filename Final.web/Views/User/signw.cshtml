@@ -17,7 +17,7 @@
 </head>
 
 <body >
-    <nav>
+ @*   <nav>
         <div class="buttons">
                   
 
@@ -82,14 +82,14 @@
                       </select>
                     </button>
                  
-                </div>*@
+                </div>
         </div>
 
         <div class="logo">
             <p>بناء منشئة</p>
             <img src="~/assets/user.jpeg" width="40px" height="40px" alt="" />
         </div>
-    </nav>
+    </nav>*@
     <!-- <img src="images/sss.jpg" alt=""> -->
    
     <fieldset class="container ff">
@@ -118,6 +118,12 @@
                         <input asp-for="ConfirmPassword" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="تأكيد كلمة المرور" required>
                     </div>
 
+                     <div class="mb-3">
+                        <input type="text" asp-for="PhoneNumber" class="form-control  p-3" id="text" aria-describedby="text" placeholder="رقم الهاتف" required>
+                        <div id="text" class="form-text">
+                        </div>
+                    </div>
+
                     <div class="mb-3">
                         <input asp-for="IDNumber" type="text" class="form-control  p-3" id="exampleInputPassword1" placeholder="رقم الهوية" required>
                     </div>
@@ -134,11 +140,11 @@
 
                         <select asp-for="Governorate"  class="form-control"  required>
                             
-                            <option value="@GoverType.E"   >شمال غزة</option>
-                            <option value="@GoverType.D"  >غزة</option>
-                            <option value="@GoverType.C" >الوسطى</option>
-                            <option value="@GoverType.B" >خانيونس</option>
-                            <option value="@GoverType.A " >رفح</option>
+                            <option value="@GoverType.الشمال"   >شمال غزة</option>
+                            <option value="@GoverType.غزة"  >غزة</option>
+                            <option value="@GoverType.الوسطي" >الوسطى</option>
+                            <option value="@GoverType.خانيونس" >خانيونس</option>
+                            <option value="@GoverType.رفح " >رفح</option>
                         </select>
                         <div id="text" class="form-text">
                         </div>

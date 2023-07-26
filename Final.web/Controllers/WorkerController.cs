@@ -1,10 +1,12 @@
-﻿using Final.web.Data;
+﻿using AutoMapper;
+using Final.web.Data;
 using Final.web.Models;
 using Final.web.ViewModel;
 using Forms.Web.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,19 +17,30 @@ namespace Final.web.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly IFileService _FileService;
-        public WorkerController(ApplicationDbContext db)
+        private IMapper _mapper;
+        public WorkerController(IMapper mapper ,ApplicationDbContext db, IFileService FileService)
         {
             _db = db;
-           
+            _FileService = FileService;
+            _mapper = mapper;
+
         }
         public IActionResult Index()
+
         {
-            return View();
+            string Email = @User.Identity.Name;
+            var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
+            return View(user);
         }
 
-        public IActionResult UpdateProfile(string Id)
+      
+        [HttpGet]
+        public IActionResult UpdateProfile()
         {
-            var users = _db.Users.Where(x => !x.IsDelete && x.Id == Id).Select(x => new UpdateWorkerViewModel()
+            string Email = @User.Identity.Name;
+            //var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
+            //var usersVm = _mapper.Map<UpdateWorkerViewModel>(user);
+            var user = _db.Users.Where(x => !x.IsDelete && x.UserName == Email).Select(x => new UpdateWorkerViewModel()
             {
                 Id = x.Id,
                 UserName = x.UserName,
@@ -35,25 +48,31 @@ namespace Final.web.Controllers
                 IDNumber = x.IDNumber,
                 Section = x.Section,
                 Governorate = x.Governorate,
-           
-            }).ToList();
-            return View(users);
+                userType = x.UserType,
+
+            }).SingleOrDefault();
+
+            return View(user);
            
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProfile(UpdateWorkerViewModel input)
+        public IActionResult UpdateProfile(UpdateWorkerViewModel input)
         {
+
             //code to save database
             if (ModelState.IsValid)
             {
                 var User = new User();
+
                 User.UserName = input.UserName;
+                User.Id = input.Id;
                 User.Email = input.Email;
                 User.IDNumber = input.IDNumber;
+                User.PhoneNumber = input.PhoneNumber;
                 User.Section = input.Section;
                 User.Governorate = input.Governorate;
-                User.UserType = input.userType;
+                User.UserType = Enums.UserType.Worker;
 
              
                 //if (input.ImageUrl != null)
@@ -63,16 +82,18 @@ namespace Final.web.Controllers
 
                
 
-                _db.Users.Add(User);
+                _db.Users.Update(User);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(input);
         }
 
-        public IActionResult ViewProduct(string Id)
+        public IActionResult ViewProduct(string Email)
         {
-            var Products = _db.Products.Include(x => x.StoreId==Id).Where(x => !x.IsDelete).ToList();
+            Email = @User.Identity.Name;
+            var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
+            var Products = _db.Products.Where(x => !x.IsDelete && x.StoreId == user.Id ).ToList();
             return View(Products);
           
         }
@@ -90,6 +111,8 @@ namespace Final.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateProductViewModel input)
         {
+           string Email = @User.Identity.Name;
+            var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
             //code to save database
             if (ModelState.IsValid)
             {
@@ -101,14 +124,14 @@ namespace Final.web.Controllers
                 product.Governorate = input.Governorate;
                 if (input.ImageUrl != null)
                 {
-                    product.ImageUrl = await _FileService.SaveFile(input.ImageUrl, "Images");
+                    product.ImageUrl = await _FileService.SaveFile(input.ImageUrl, "ImagesProduct");
                 }
 
-                product.StoreId = input.WorkerId;
+                product.StoreId = user.Id;
                
                 _db.Products.Add(product);
                 _db.SaveChanges();
-                return RedirectToAction("Update");
+                return RedirectToAction("ViewProduct");
             }
             return View(input);
         }
@@ -167,7 +190,15 @@ namespace Final.web.Controllers
         }
 
 
+        public IActionResult Delete(int Id)
+        {
+            var Product = _db.Products.SingleOrDefault(x => x.id == Id && !x.IsDelete);
+            Product.IsDelete = true;
+            _db.Products.Update(Product);
+            _db.SaveChanges();
+            return RedirectToAction("ViewProduct");
 
+        }
 
     }
 }

@@ -7,14 +7,14 @@
     <div class="row">
        <div class="col-md-6">
           <div class="form-group">
-            <label  class="lable-control" style="color: #FF6700;"> اسم المنتج</label>
+            <label  class="lable-control" style="color: #FF6700;"> اسم العمل</label>
              <input required  asp-for="Name"  class="form-control" />
          </div>
         </div>
 
       <div class="col-md-6">
           <div class="form-group">
-            <label  class="lable-control" style="color: #FF6700;">سعر المنتج  </label>
+            <label  class="lable-control" style="color: #FF6700;">سعر العمل  </label>
              <input required  asp-for="Price"  class="form-control" />
          </div>
           </div>
@@ -23,14 +23,14 @@
 
        <div class="col-md-6">
           <div class="form-group">
-            <label  class="lable-control" style="color: #FF6700;"> صورة المنتج</label>
+            <label  class="lable-control" style="color: #FF6700;"> صورة عمل</label>
              <input type="file" required  asp-for="ImageUrl"  class="form-control" />
          </div>
         </div>
    
             <div class="col-md-6">
           <div class="form-group">
-            <label     class="lable-control" style="color: #FF6700;"> وصف المنتج</label>
+            <label     class="lable-control" style="color: #FF6700;"> وصف العمل</label>
              <input required  asp-for="Description"  class="form-control" />
          </div>
         </div>
@@ -40,7 +40,7 @@
                      <div class="col-md-6">
                          <div class="form-group">
                        
-                              <label class="lable-control" style="color: #FF6700;"> موقع المتجر </label>
+                              <label class="lable-control" style="color: #FF6700;"> موقع العمل </label>
                         <select asp-for="Governorate"  class="form-control"  required>
                             
                             <option value="@GoverType.الشمال"   >شمال غزة</option>
@@ -57,7 +57,7 @@
                      <div class="col-md-6">
                          <div class="form-group">
                        
-                                 <label class="lable-control" style="color: #FF6700;"> قسم المتجر </label>
+                                 <label class="lable-control" style="color: #FF6700;"> قسم العمل </label>
                         <select  asp-for="Section" class="form-control "  required>
                            
                             <option value="@SectionType.البناء"  >البناء</option>
@@ -77,7 +77,7 @@
        
  
     <input type="submit" class="btn btn-warning"  value="حفظ"/>
-     <a asp-controller="~/Worker/ViewProduct" asp-action="Index"class="btn btn-danger">رجوع</a>
+     <a asp-controller="Store" asp-action="ViewProduct"class="btn btn-danger">رجوع</a>
       </div>
 </form>
 

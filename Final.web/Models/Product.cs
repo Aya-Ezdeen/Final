@@ -30,7 +30,7 @@ namespace Final.web.Models
 
         public SectionType Section { get; set; }
 
-        public string FileUrl { get; set; }
+     
          public bool IsDelete { get; set; }
     }
 }

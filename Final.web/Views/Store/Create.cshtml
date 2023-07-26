@@ -1,8 +1,29 @@
-﻿@model  UpdateProductViewModel
+﻿@model CreateProductViewModel
+<!DOCTYPE html>
+<html>
 
-<form asp-action="Update" enctype="multipart/form-data">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" /> -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/m.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/m.css"/>
+</head>
 
-     
+
+
+<h1 style="color: #FF6700;"> اضافة منتج جديد </h1>
+<hr />
+
+
+<form asp-action="Create" enctype="multipart/form-data">
+
+     <input   asp-for="WorkerId" type="hidden" /> 
 
     <div class="row">
        <div class="col-md-6">
@@ -35,7 +56,8 @@
          </div>
         </div>
 
-     
+      
+           <input   asp-for="WorkerId" type="hidden" />
     
                      <div class="col-md-6">
                          <div class="form-group">
@@ -74,10 +96,10 @@
                       
                         </div>
                     </div>
-       
- 
-    <input type="submit" class="btn btn-warning"  value="حفظ"/>
-     <a asp-controller="~/Worker/ViewProduct" asp-action="Index"class="btn btn-danger">رجوع</a>
-      </div>
-</form>
+        </div>
+  
+    
 
+    <input type="submit" class="btn btn-warning"  value="Save"/>
+     <a asp-controller="Store" asp-action="ViewProduct"class="btn btn-danger">Back</a>
+</form>

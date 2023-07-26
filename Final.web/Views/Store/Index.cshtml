@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model User
+
+<!DOCTYPE html>
 <html >
 
 <head>
@@ -20,7 +22,7 @@
     <div class="user-info ">
         <div class="icon "><img src="~\icons\icons8-achievement-64.png "></div>
         <!-- Icon must me here -->
-        <span>شركة الاوائل</span>
+        <p>@Model.UserName</p>
 
         <div class="details ">
             <div>
@@ -29,14 +31,14 @@
                 <!-- Icon must me here -->
             </div>
             <div>
-                <span>غزة</span>
+                 <p>@Model.Governorate</p>
                 <span><img src="~/icons/gaza.png "width="20px " height="20px "></span>
                 <!-- Icon must me here -->
             </div>
         </div>
 
         <div class="phone ">
-            <span>059-XXXX-XXX</span>
+            <p>@Model.PhoneNumber</p>
             <span><img src="~/icons/icons8-number-pad-50 (1).png "width="20px " height="20px "></span>
         </div>
     </div>

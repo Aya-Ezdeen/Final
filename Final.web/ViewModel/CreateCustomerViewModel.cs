@@ -5,6 +5,7 @@ namespace Final.web.ViewModel
 {
     public class CreateCustomerViewModel
     {
+
         [Required]
         [Display(Name = " اسم المستخدم")]
         public string UserName { get; set; }

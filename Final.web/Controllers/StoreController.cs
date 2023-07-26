@@ -15,14 +15,16 @@ namespace Final.web.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly IFileService _FileService;
-        public StoreController(ApplicationDbContext db)
+        public StoreController(ApplicationDbContext db,IFileService FileService)
         {
             _db = db;
-
+            _FileService = FileService;
         }
         public IActionResult Index()
         {
-            return View();
+            string Email = @User.Identity.Name;
+            var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
+            return View(user);
         }
 
         [HttpGet]
@@ -44,7 +46,7 @@ namespace Final.web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProfile(UpdateStoreViewModel input)
+        public  IActionResult UpdateProfile(UpdateStoreViewModel input)
         {
             //code to save database
             if (ModelState.IsValid)
@@ -72,9 +74,11 @@ namespace Final.web.Controllers
             return View(input);
         }
 
-        public IActionResult ViewProduct(string Id)
+        public IActionResult ViewProduct(string Email)
         {
-            var Products = _db.Products.Include(x => x.StoreId == Id).Where(x => !x.IsDelete).ToList();
+            Email = @User.Identity.Name;
+            var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
+            var Products = _db.Products.Where(x => !x.IsDelete && x.StoreId == user.Id).ToList();
             return View(Products);
 
         }
@@ -92,6 +96,8 @@ namespace Final.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateProductViewModel input)
         {
+            string Email = @User.Identity.Name;
+            var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
             //code to save database
             if (ModelState.IsValid)
             {
@@ -103,14 +109,14 @@ namespace Final.web.Controllers
                 product.Governorate = input.Governorate;
                 if (input.ImageUrl != null)
                 {
-                    product.ImageUrl = await _FileService.SaveFile(input.ImageUrl, "Images");
+                    product.ImageUrl = await _FileService.SaveFile(input.ImageUrl, "ImagesProduct");
                 }
 
-                product.StoreId = input.WorkerId;
+                product.StoreId = user.Id;
 
                 _db.Products.Add(product);
                 _db.SaveChanges();
-                return RedirectToAction("Update");
+                return RedirectToAction("ViewProduct");
             }
             return View(input);
         }
@@ -167,7 +173,15 @@ namespace Final.web.Controllers
 
             return View(update);
         }
+        public IActionResult Delete(int Id)
+        {
+            var Product = _db.Products.SingleOrDefault(x => x.id == Id && !x.IsDelete);
+            Product.IsDelete = true;
+            _db.Products.Update(Product);
+            _db.SaveChanges();
+            return RedirectToAction("ViewProduct");
 
+        }
 
     }
 }

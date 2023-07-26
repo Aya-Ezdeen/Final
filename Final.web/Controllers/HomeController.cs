@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+
 namespace Final.web.Controllers
 {
     public class HomeController : Controller
@@ -19,7 +21,9 @@ namespace Final.web.Controllers
         }
 
         public IActionResult Index()
+
         {
+        
             return View();
         }
 

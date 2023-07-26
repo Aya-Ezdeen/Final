@@ -1,5 +1,5 @@
-﻿@model User
-
+﻿
+@model User
 <!DOCTYPE html>
 <html >
 
@@ -23,23 +23,23 @@
     <div class="user-info ">
         <div class="icon "><img src="~/icons/user.png "></div>
         <!-- Icon must me here -->
-        <span> محمد محمد </span>
+        <p>@Model.UserName</p>
        
         <div class="details ">
             <div>
-                <span>عامل بناء</span>
+                <p>  عامل @Model.Section   </p>
                 <span><img src="~/icons/icons8-worker-50.png "width="20px " height="20px "> </span>
                 <!-- Icon must me here -->
             </div>
             <div>
-                <span>غزة</span>
+                <p>@Model.Governorate</p>
                 <span><img src="~/icons/gaza.png "width="20px " height="20px "></span>
                 <!-- Icon must me here -->
             </div>
         </div>
 
         <div class="phone ">
-            <span>059-XXXX-XXX</span>
+            <p>@Model.PhoneNumber</p>
             <span><img src="~/icons/icons8-number-pad-50 (1).png "width="20px " height="20px "></span>
         </div>
     </div>
@@ -56,7 +56,7 @@
             
             <div class="card ">
                 <button style="background-color:  #faedda;  border:none; color: #FF6700;">
-              <a href="~/Worker/ViewProduct"  style="color: #FF6700;"> تعديل المنتجات</a>
+              <a   href ="~/Worker/ViewProduct"  style="color: #FF6700;"> تعديل المنتجات</a>
                 <span><img src="~/icons/icons8-modify-58.png " alt="... " width="20px " height="20px "></span>
             </button>
             </div>

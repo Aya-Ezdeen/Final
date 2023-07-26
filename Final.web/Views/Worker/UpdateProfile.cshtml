@@ -1,4 +1,4 @@
-﻿@model UpdateWorkerViewModel
+﻿@model  UpdateStoreViewModel
 
 
 <!DOCTYPE html>
@@ -23,10 +23,10 @@
 
         <div class="header row mt-5 ">
             <div class="col">
-                <form class="mt-5" asp-action="Update">
+                <form class="mt-5" asp-action="UpdateProfile">
                      <h4 class="mx-5 text-center mt-5"  style="color: #FF6700;" >تعديل بيانات العامل </h4>
                      <div class="mb-3">
-                        <input asp-for="UserName" type="text" class="form-control  p-3" id="text" aria-describedby="text" placeholder="اسم المستخدم" required>
+                        <input asp-for="UserName"  type="text" class="form-control  p-3" id="text" aria-describedby="text" placeholder="اسم المستخدم" required>
                         <div id="text" class="form-text">
                         </div>
                     </div> 
@@ -45,13 +45,20 @@
                         <input asp-for="ConfirmPassword" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="تأكيد كلمة المرور" required>
                     </div>
 
+                       <div class="mb-3">
+                        <input type="text" asp-for="PhoneNumber" class="form-control  p-3" id="text" aria-describedby="text" placeholder="رقم الهاتف" required>
+                        <div id="text" class="form-text">
+                        </div>
+                    </div> 
+
                     <div class="mb-3">
                         <input asp-for="IDNumber" type="text" class="form-control  p-3" id="exampleInputPassword1" placeholder="رقم الهوية" required>
                     </div>
+                    <input asp-for="Id" type="hidden" />
 
-                    <div class="mb-3">
+                   @* <div class="mb-3">
                         <input  type="file" multiple class="form-control  p-3" id="exampleInputPassword1" placeholder="ملفات الانجاز">
-                    </div>
+                    </div>*@
 
                      
 
@@ -61,11 +68,11 @@
 
                         <select asp-for="Governorate"  class="form-control"  required>
                             
-                            <option value="@GoverType.E"   >شمال غزة</option>
-                            <option value="@GoverType.D"  >غزة</option>
-                            <option value="@GoverType.C" >الوسطى</option>
-                            <option value="@GoverType.B" >خانيونس</option>
-                            <option value="@GoverType.A " >رفح</option>
+                           <option value="@GoverType.الشمال"   >شمال غزة</option>
+                            <option value="@GoverType.غزة"  >غزة</option>
+                            <option value="@GoverType.الوسطي" >الوسطى</option>
+                            <option value="@GoverType.خانيونس" >خانيونس</option>
+                            <option value="@GoverType.رفح " >رفح</option>
                         </select>
                         <div id="text" class="form-text">
                         </div>
@@ -90,7 +97,7 @@
                         </div>
                     </div>
 
-                     <button type="submit" class="btn col-5 container mt-5 btn-light text-center text-danger p-3">Updata</button>
+                     <button type="submit" class="btn col-5 container mt-5 btn-light text-center text-danger p-3">تحديث</button>
                 </form>
                 
             </div>

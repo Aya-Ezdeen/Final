@@ -70,6 +70,7 @@ namespace Final.web.Controllers
 
             if (result.Succeeded)
             {
+
                 await _UserManger.AddToRoleAsync(user, "Worker");
                 return RedirectToAction("Index");
             }

@@ -1,5 +1,6 @@
 using Final.web.Data;
 using Final.web.Models;
+using Forms.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +37,12 @@ namespace Final.web
             services.AddIdentity<User,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI();
             services.AddRazorPages();
+
+            services.Configure<PasswordHasherOptions>(options =>
+            options.CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV3
+                  );
+            services.AddScoped<IFileService, FileService>();
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
         }
 
@@ -65,7 +72,7 @@ namespace Final.web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Customers}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
