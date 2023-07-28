@@ -1,4 +1,4 @@
-﻿@model  UpdateStoreViewModel
+﻿@model  UpdateWorkerViewModel
 
 
 <!DOCTYPE html>
@@ -37,13 +37,13 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                   @* <div class="mb-3">
                         <input asp-for="Password" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="كلمة المرور" required>
                     </div>
 
                     <div class="mb-3">
                         <input asp-for="ConfirmPassword" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="تأكيد كلمة المرور" required>
-                    </div>
+                    </div>*@
 
                        <div class="mb-3">
                         <input type="text" asp-for="PhoneNumber" class="form-control  p-3" id="text" aria-describedby="text" placeholder="رقم الهاتف" required>
@@ -55,7 +55,7 @@
                         <input asp-for="IDNumber" type="text" class="form-control  p-3" id="exampleInputPassword1" placeholder="رقم الهوية" required>
                     </div>
                     <input asp-for="Id" type="hidden" />
-
+                
                    @* <div class="mb-3">
                         <input  type="file" multiple class="form-control  p-3" id="exampleInputPassword1" placeholder="ملفات الانجاز">
                     </div>*@
@@ -98,7 +98,8 @@
                     </div>
 
                      <button type="submit" class="btn col-5 container mt-5 btn-light text-center text-danger p-3">تحديث</button>
-                </form>
+              @*  <a asp-area="Identity" asp-page="/Account/ResetPassword" style="color: #FF6700;">اعادة تعيين كلمة المرور؟</a>*@
+                 </form>
                 
             </div>
  </div>

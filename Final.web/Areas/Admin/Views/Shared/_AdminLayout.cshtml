@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - لوحة التحكم </title>
+    <link rel="stylesheet" href="~/AdminStyle/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/AdminStyle/css/site.css" />
+    <!-- Favicons -->
+  <link href="=~/AdminStyle/img/favicon.png" rel="icon">
+  <link href="~/AdminStyle/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="~/AdminStyle/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="~/AdminStyle/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="~/AdminStyle/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="~/AdminStyle/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="~/AdminStyle/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="~/AdminStyle/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="~/AdminStyle/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="~/AdminStyle/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">dashboard_admin</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - dashboard_admin - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/AdminStyle/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/AdminStyle/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/AdminStyle/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="~/AdminStyle/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="~/AdminStyle/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="~/AdminStyle/vendor/chart.js/chart.umd.js"></script>
+  <script src="~/AdminStyle/vendor/echarts/echarts.min.js"></script>
+  <script src="~/AdminStyle/vendor/quill/quill.min.js"></script>
+  <script src="~/AdminStyle/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="~/AdminStyle/vendor/tinymce/tinymce.min.js"></script>
+  <script src="~/AdminStyle/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="~/AdminStyle/js/main.js"></script>
+
+</body>
+</html>

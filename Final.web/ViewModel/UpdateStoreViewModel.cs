@@ -36,13 +36,13 @@ namespace Final.web.ViewModel
 
         [DataType(DataType.Password)]
         [Required]
-        [Display(Name = "كلمة المرور ")]
-        public string Password { get; set; }
+        //[Display(Name = "كلمة المرور ")]
+        //public string Password { get; set; }
 
-        [DataType(DataType.Password)]
-        [Required]
-        [Display(Name = "تاكيد كلمة المرور ")]
-        public string ConfirmPassword { get; set; }
+        //[DataType(DataType.Password)]
+        //[Required]
+        //[Display(Name = "تاكيد كلمة المرور ")]
+        //public string ConfirmPassword { get; set; }
 
         public UserType userType { get; set; }
     }

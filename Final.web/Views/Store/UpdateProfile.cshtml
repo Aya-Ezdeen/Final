@@ -23,7 +23,7 @@
 
         <div class="header row mt-5 ">
             <div class="col">
-                <form class="mt-5" asp-action="Update">
+                <form class="mt-5" asp-action="UpdateProfile">
                      <h4 class="mx-5 text-center mt-5"  style="color: #FF6700;" >تعديل بيانات المتجر </h4>
                      <div class="mb-3">
                         <input asp-for="UserName" type="text" class="form-control  p-3" id="text" aria-describedby="text" placeholder="اسم المستخدم" required>
@@ -46,13 +46,13 @@
                     </div>
 
 
-                    <div class="mb-3">
+                    @*<div class="mb-3">
                         <input asp-for="Password" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="كلمة المرور" required>
                     </div>
 
                     <div class="mb-3">
                         <input asp-for="ConfirmPassword" type="password" class="form-control  p-3" id="exampleInputPassword1" placeholder="تأكيد كلمة المرور" required>
-                    </div>
+                    </div>*@
 
                  
 
@@ -97,9 +97,10 @@
                         </div>
                     </div>
 
-                     <button type="submit" class="btn col-5 container mt-5 btn-light text-center text-danger p-3">Updata</button>
+                     
+                    <button type="submit" class="btn col-5 container mt-5 btn-light text-center text-danger p-3">تحديث</button>
                 </form>
-                
+               @*   <a asp-area="Identity" asp-page="/Account/ResetPassword" style="color: #FF6700;">اعادة تعيين كلمة المرور؟</a>*@
             </div>
  </div>
 

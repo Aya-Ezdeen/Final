@@ -1,6 +1,9 @@
 ﻿@page
 @model LoginModel
 
+
+
+
 @{
   
 }
@@ -9,6 +12,7 @@
 <div class="row">
     <div class="col-md-4">
         <section>
+              <fieldset class="container ff">
             <form id="account" method="post">
                 <h4  style="color: #FF6700;" >تسجيل دخول لبناء منشأة</h4>
                 <hr />
@@ -36,6 +40,14 @@
                 </div>
                
             </form>
+                  <br>
+                         <a asp-area="Identity" asp-page="/Account/ForgotPassword"  style="color: #FF6700;">نسيت كلمة المرور؟</a>
+                       <br>
+                         <p id="prh"   style="color: #FF6700;">مستخدم جديد؟
+                           
+                            <span><a href="~/User/signc"   style="color: #FF6700;">سجل  هنا</a></span>
+                         </p>
+            </fieldset>
         </section>
     </div>
    

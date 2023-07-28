@@ -15,7 +15,7 @@ namespace Final.web.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly IFileService _FileService;
-        public StoreController(ApplicationDbContext db,IFileService FileService)
+        public StoreController(ApplicationDbContext db, IFileService FileService)
         {
             _db = db;
             _FileService = FileService;
@@ -28,9 +28,12 @@ namespace Final.web.Controllers
         }
 
         [HttpGet]
-        public IActionResult UpdateProfile(string Id)
+        public IActionResult UpdateProfile()
         {
-            var users = _db.Users.Where(x => !x.IsDelete && x.Id == Id).Select(x => new UpdateStoreViewModel()
+            string Email = @User.Identity.Name;
+            //var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
+            //var usersVm = _mapper.Map<UpdateWorkerViewModel>(user);
+            var user = _db.Users.Where(x => !x.IsDelete && x.UserName == Email).Select(x => new UpdateStoreViewModel()
             {
                 Id = x.Id,
                 UserName = x.UserName,
@@ -39,26 +42,32 @@ namespace Final.web.Controllers
                 PhoneNumber = x.PhoneNumber,
                 Section = x.Section,
                 Governorate = x.Governorate,
-            
-            }).ToList();
-            return View(users);
+                userType = x.UserType,
+
+            }).SingleOrDefault();
+
+            return View(user);
 
         }
 
         [HttpPost]
-        public  IActionResult UpdateProfile(UpdateStoreViewModel input)
+        public IActionResult UpdateProfile(UpdateStoreViewModel input)
         {
+
             //code to save database
             if (ModelState.IsValid)
             {
-                var User = new User();
+                var User = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == input.Email);
+
                 User.UserName = input.UserName;
+
                 User.Email = input.Email;
                 User.IDNumber = input.IDNumber;
+                User.PhoneNumber = input.PhoneNumber;
                 User.Section = input.Section;
                 User.Governorate = input.Governorate;
-                User.UserType = input.userType;
-                User.PhoneNumber = input.PhoneNumber;
+                User.UserType = Enums.UserType.Store;
+
 
                 //if (input.ImageUrl != null)
                 //{
@@ -67,121 +76,124 @@ namespace Final.web.Controllers
 
 
 
-                _db.Users.Add(User);
+                _db.Users.Update(User);
+
+
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(input);
         }
+    
 
-        public IActionResult ViewProduct(string Email)
+    public IActionResult ViewProduct(string Email)
+    {
+        Email = @User.Identity.Name;
+        var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
+        var Products = _db.Products.Where(x => !x.IsDelete && x.StoreId == user.Id).ToList();
+        return View(Products);
+
+    }
+
+
+
+
+    [HttpGet]
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(CreateProductViewModel input)
+    {
+        string Email = @User.Identity.Name;
+        var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
+        //code to save database
+        if (ModelState.IsValid)
         {
-            Email = @User.Identity.Name;
-            var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
-            var Products = _db.Products.Where(x => !x.IsDelete && x.StoreId == user.Id).ToList();
-            return View(Products);
-
-        }
-
-      
-
-
-        [HttpGet]
-
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateProductViewModel input)
-        {
-            string Email = @User.Identity.Name;
-            var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
-            //code to save database
-            if (ModelState.IsValid)
+            var product = new Product();
+            product.Name = input.Name;
+            product.Price = input.Price;
+            product.Description = input.Description;
+            product.Section = input.Section;
+            product.Governorate = input.Governorate;
+            if (input.ImageUrl != null)
             {
-                var product = new Product();
-                product.Name = input.Name;
-                product.Price = input.Price;
-                product.Description = input.Description;
-                product.Section = input.Section;
-                product.Governorate = input.Governorate;
-                if (input.ImageUrl != null)
-                {
-                    product.ImageUrl = await _FileService.SaveFile(input.ImageUrl, "ImagesProduct");
-                }
-
-                product.StoreId = user.Id;
-
-                _db.Products.Add(product);
-                _db.SaveChanges();
-                return RedirectToAction("ViewProduct");
+                product.ImageUrl = await _FileService.SaveFile(input.ImageUrl, "ImagesProduct");
             }
-            return View(input);
+
+            product.StoreId = user.Id;
+
+            _db.Products.Add(product);
+            _db.SaveChanges();
+            return RedirectToAction("ViewProduct");
         }
+        return View(input);
+    }
 
 
-        [HttpGet]
-        public async Task<IActionResult> Update(int Id)
+    [HttpGet]
+    public async Task<IActionResult> Update(int Id)
+    {
+        var Product = _db.Products.SingleOrDefault(x => x.id == Id && !x.IsDelete);
+        if (Product == null)
         {
-            var Product = _db.Products.SingleOrDefault(x => x.id == Id && !x.IsDelete);
+            return NotFound();
+        }
+        var Vm = new UpdateProductViewModel();
+        Vm.Name = Product.Name;
+        Vm.Price = Product.Price;
+        Vm.Description = Product.Description;
+        Vm.Section = Product.Section;
+        Vm.Governorate = Product.Governorate;
+        Vm.Id = Product.id;
+        Vm.WorkerId = Product.StoreId;
+
+        Product.ImageUrl = await _FileService.SaveFile(Vm.ImageUrl, "Images");
+
+        return View(Vm);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Update(UpdateProductViewModel update)
+    {
+        if (ModelState.IsValid)
+        {
+            var Product = _db.Products.SingleOrDefault(x => x.id == update.Id && !x.IsDelete);
             if (Product == null)
             {
                 return NotFound();
             }
-            var Vm = new UpdateProductViewModel();
-            Vm.Name = Product.Name;
-            Vm.Price = Product.Price;
-            Vm.Description = Product.Description;
-            Vm.Section = Product.Section;
-            Vm.Governorate = Product.Governorate;
-            Vm.Id = Product.id;
-            Vm.WorkerId = Product.StoreId;
-
-            Product.ImageUrl = await _FileService.SaveFile(Vm.ImageUrl, "Images");
-
-            return View(Vm);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Update(UpdateProductViewModel update)
-        {
-            if (ModelState.IsValid)
-            {
-                var Product = _db.Products.SingleOrDefault(x => x.id == update.Id && !x.IsDelete);
-                if (Product == null)
-                {
-                    return NotFound();
-                }
-                Product.Name = update.Name;
-                Product.Price = update.Price;
-                Product.Description = update.Description;
-                Product.Section = update.Section;
-                Product.Governorate = update.Governorate;
+            Product.Name = update.Name;
+            Product.Price = update.Price;
+            Product.Description = update.Description;
+            Product.Section = update.Section;
+            Product.Governorate = update.Governorate;
 
 
 
-                Product.ImageUrl = await _FileService.SaveFile(update.ImageUrl, "Images");
+            Product.ImageUrl = await _FileService.SaveFile(update.ImageUrl, "Images");
 
 
 
-                _db.Products.Update(Product);
-                _db.SaveChanges();
-                return RedirectToAction("ViewProduct");
-            }
-
-            return View(update);
-        }
-        public IActionResult Delete(int Id)
-        {
-            var Product = _db.Products.SingleOrDefault(x => x.id == Id && !x.IsDelete);
-            Product.IsDelete = true;
             _db.Products.Update(Product);
             _db.SaveChanges();
             return RedirectToAction("ViewProduct");
-
         }
 
+        return View(update);
     }
+    public IActionResult Delete(int Id)
+    {
+        var Product = _db.Products.SingleOrDefault(x => x.id == Id && !x.IsDelete);
+        Product.IsDelete = true;
+        _db.Products.Update(Product);
+        _db.SaveChanges();
+        return RedirectToAction("ViewProduct");
+
+    }
+
+}
 }

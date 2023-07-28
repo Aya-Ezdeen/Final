@@ -42,8 +42,6 @@ namespace Final.web.Controllers
         [HttpGet]
         public IActionResult signw()
         {
-
-
             return View();
         }
 
@@ -62,15 +60,10 @@ namespace Final.web.Controllers
                 user.Section = input.Section;
                 user.Governorate = input.Governorate;
 
-
-
-                
-
             IdentityResult result = await _UserManger.CreateAsync(user, input.Password);
 
             if (result.Succeeded)
             {
-
                 await _UserManger.AddToRoleAsync(user, "Worker");
                 return RedirectToAction("Index");
             }
@@ -78,64 +71,17 @@ namespace Final.web.Controllers
             return View(input);
         }
 
-        //if (input.userType == Enums.UserType.Admin)
-        //    {
-        //        await _UserManger.AddToRoleAsync(user, "Admin");
-        //    }
-        //    else if (input.userType == Enums.UserType.Worker)
-        //    {
-        //        await _UserManger.AddToRoleAsync(user, "Worker");
-        //    }
-        //    else if (input.userType == Enums.UserType.Customer)
-        //    {
-        //        await _UserManger.AddToRoleAsync(user, "Customer");
-        //    }
-        //    else if (input.userType == Enums.UserType.Store)
-        //    {
-        //        await _UserManger.AddToRoleAsync(user, "Store");
-        //    }
-
-        //return RedirectToAction("Index");
-
-
-
-
-        //if (ModelState.IsValid)
-        //{
-        //    //save in db
-        //    var user = new User();
-        //    user.UserName = input.UserName;
-        //    user.Email = input.Email;
-        //    user.UserType = Enums.UserType.Worker;
-        //    user.IDNumber = input.IDNumber;
-        //    user.Section = input.Section;
-        //    user.Governorate = input.Governorate;
-
-        //   if(input.ConfirmPassword== input.Password)
-        //    {
-        //        IdentityResult result = await _UserManger.CreateAsync(user, input.Password);
-        //        if (result.Succeeded)
-        //            return RedirectToAction("Index");
-        //    }
-        //    else return RedirectToAction("Signw");
-
-
-        //}
-
-        //return View(input);
+       
 
         [HttpGet]
         public IActionResult signc()
         {
-
-
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> signc(CreateCustomerViewModel input)
         {
-
             if (ModelState.IsValid)
             {
                 var user = new User();
@@ -144,8 +90,6 @@ namespace Final.web.Controllers
                 user.UserType = UserType.Customer;
                 input.userType = user.UserType;
                 
-
-
                 IdentityResult result = await _UserManger.CreateAsync(user, input.Password);
 
                 if (result.Succeeded)
@@ -157,11 +101,11 @@ namespace Final.web.Controllers
             return View(input);
         }
 
+
+
         [HttpGet]
         public IActionResult signs()
         {
-
-
             return View();
         }
 
@@ -181,10 +125,6 @@ namespace Final.web.Controllers
                 user.Section = input.Section;
                 user.Governorate = input.Governorate;
 
-
-
-
-
                 IdentityResult result = await _UserManger.CreateAsync(user, input.Password);
 
                 if (result.Succeeded)
@@ -195,6 +135,9 @@ namespace Final.web.Controllers
             }
             return View(input);
         }
+
+
+
         public async Task<IActionResult> InitRoles()
         {
             if (!_db.Roles.Any())

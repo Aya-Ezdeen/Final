@@ -4,6 +4,7 @@ using Final.web.Models;
 using Final.web.ViewModel;
 using Forms.Web.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -18,12 +19,13 @@ namespace Final.web.Controllers
         private readonly ApplicationDbContext _db;
         private readonly IFileService _FileService;
         private IMapper _mapper;
-        public WorkerController(IMapper mapper ,ApplicationDbContext db, IFileService FileService)
+        private UserManager<User> _UserManger;
+        public WorkerController(IMapper mapper ,ApplicationDbContext db, IFileService FileService, UserManager<User> UserManger)
         {
             _db = db;
             _FileService = FileService;
             _mapper = mapper;
-
+            _UserManger = UserManger;
         }
         public IActionResult Index()
 
@@ -46,10 +48,11 @@ namespace Final.web.Controllers
                 UserName = x.UserName,
                 Email = x.Email,
                 IDNumber = x.IDNumber,
+                PhoneNumber=x.PhoneNumber,
                 Section = x.Section,
                 Governorate = x.Governorate,
                 userType = x.UserType,
-
+             
             }).SingleOrDefault();
 
             return View(user);
@@ -63,10 +66,10 @@ namespace Final.web.Controllers
             //code to save database
             if (ModelState.IsValid)
             {
-                var User = new User();
-
+                var User = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == input. Email);
+               
                 User.UserName = input.UserName;
-                User.Id = input.Id;
+              
                 User.Email = input.Email;
                 User.IDNumber = input.IDNumber;
                 User.PhoneNumber = input.PhoneNumber;
@@ -74,24 +77,26 @@ namespace Final.web.Controllers
                 User.Governorate = input.Governorate;
                 User.UserType = Enums.UserType.Worker;
 
-             
+
                 //if (input.ImageUrl != null)
                 //{
                 //    product.ImageUrl = await _FileService.SaveFile(input.ImageUrl, "Images");
                 //}
 
-               
 
-                _db.Users.Update(User);
+
+              _db.Users.Update(User);
+
+               
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(input);
         }
 
-        public IActionResult ViewProduct(string Email)
+        public IActionResult ViewProduct()
         {
-            Email = @User.Identity.Name;
+           var Email = @User.Identity.Name;
             var user = _db.Users.SingleOrDefault(x => !x.IsDelete && x.UserName == Email);
             var Products = _db.Products.Where(x => !x.IsDelete && x.StoreId == user.Id ).ToList();
             return View(Products);
